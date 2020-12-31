@@ -1,0 +1,47 @@
+{
+  "code": 200,
+  "data": [
+    {
+      "id": 1,
+      "name": "Dashboard",
+      "icon": "el-icon-s-flag",
+      "path": "/dashboard",
+      "component": "dashboard/dashboard.vue",
+      "children": [
+        {
+          "id": 2,
+          "name": "主控台",
+          "path": "",
+          "component": "dashboard/console.vue"
+        },
+        {
+          "name": "监控页",
+          "id": 3,
+          "path": "monitor",
+          "component": "dashboard/monitor.vue"
+        },
+        {
+          "name": "工作台",
+          "id": 4,
+          "path": "workplace",
+          "component": "dashboard/workplace.vue"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "系统管理",
+      "icon": "el-icon-s-tools",
+      "path": "/system",
+      "component": "system/system.vue",
+      "children": [
+        {
+          "id": 2,
+          "name": "资源管理",
+          "path": "",
+          "component": "system/resource.vue"
+        }
+      ]
+    }
+  ]
+}
