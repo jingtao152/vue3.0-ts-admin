@@ -25,17 +25,31 @@ import {defineComponent, reactive, ref} from 'vue'
 import {useRouter} from 'vue-router'
 import {useStore} from 'vuex'
 
+export interface User{
+    user: string;
+    password: string;
+}
+export interface Valid{
+    required: boolean;
+    message: string;
+    trigger: string;
+}
+export interface Rule{
+    user: Valid[];
+    password: Valid[];
+
+}
 
 export default defineComponent({
     setup() {
         const store = useStore()
         const router = useRouter()
         const formRef = ref<null | HTMLElement>(null)
-        const form = reactive({
+        const form  = reactive<User>({
             user: '',
             password: ''
         })
-        const rules = reactive({
+        const rules = reactive<Rule>({
             user: [
                 {required: true, message: '请输入账号', trigger: 'blur'}
             ],

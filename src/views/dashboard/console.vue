@@ -1,5 +1,5 @@
 <template>
-    <div>{{title}}</div>
+    <div class="pageFull">{{title}}</div>
 </template>
 
 <script lang="ts">

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="pageFull">
         <router-view></router-view>
     </div>
 </template>
