@@ -74,7 +74,7 @@ export default defineComponent({
     }
 })
 </script>
-<style lang="less">
+<style lang="scss">
 .login {
     width: 100%;
     height: 100%;

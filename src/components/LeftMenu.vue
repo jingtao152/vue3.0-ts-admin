@@ -1,23 +1,22 @@
 <template>
-    <el-menu
-        v-if="menuList"
-        :default-active="defaultActive"
-        class="el-menu-vertical-demo left-menu"
-        :collapse="isCollapse"
-        background-color="#545c64"
-        text-color="#fff"
-        active-text-color="#ffd04b">
-        <el-submenu :index="`${item.path}`" v-for="item in menuList" :key="item.id">
-            <template #title>
-                <i :class="item.icon"></i>
-                <span>{{ item.name }}</span>
-            </template>
-            <el-menu-item v-for="child in item.children" :key="child.id"
-                          :index="`${item.path}/${child.path}`" @click="checkItem(item, child)">
-                {{ child.name }}
-            </el-menu-item>
-        </el-submenu>
-    </el-menu>
+    <div class="left-menu-wrapper" :style="{width: isCollapse ? '64px' : '200px'}">
+        <el-menu
+            v-if="menuList"
+            :default-active="defaultActive"
+            class="el-menu-vertical-demo left-menu"
+            :collapse="isCollapse">
+            <el-submenu :index="`${item.path}`" v-for="item in menuList" :key="item.id">
+                <template #title>
+                    <i :class="item.icon"></i>
+                    <span>{{ item.name }}</span>
+                </template>
+                <el-menu-item v-for="child in item.children" :key="child.id"
+                            :index="`${item.path}/${child.path}`" @click="checkItem(item, child)">
+                    {{ child.name }}
+                </el-menu-item>
+            </el-submenu>
+        </el-menu>
+    </div>
 </template>
 
 <script lang="ts">
@@ -45,7 +44,9 @@ const menuGroup = (props, context) => {
     })
     const checkItem = (parent, child) => {
         context.emit('checkItem', [parent, child])
-        router.push(`${parent.path}/${child.path}`)
+        const path = `${parent.path}/${child.path}`
+        store.dispatch('base/setHistoryPage', {path, pathName: child.name})
+        router.push(path)
     }
     return {
         menuList,
@@ -71,17 +72,22 @@ export default defineComponent({
     }
 })
 </script>
-<style lang="less">
-.left-menu {
-    i {
-        color: white;
-    }
+<style lang="scss">
+.left-menu-wrapper {
+     transition: ease-in-out .3s;
+     height: 100%;
+     overflow: hidden;
+     border-right: 1px solid #ddd;
+}
+.left-menu{
+    transition: all .3s;
+    border: none;
 
     .el-submenu .el-menu-item, .el-menu-item {
         min-width: unset;
+        transition: all .3s;
     }
 }
-
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;

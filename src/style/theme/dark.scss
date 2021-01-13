@@ -1,0 +1,23 @@
+.dark-theme{
+  .left-menu-wrapper, .el-menu{
+    background: #545c64;
+    .el-menu-item,.el-submenu__title,i{
+      color: #fff;
+    }
+    .el-menu-item{
+      background: #545c64;
+    }
+    .el-menu-item:hover,.el-submenu__title:hover{
+      background: rgb(67,74,80);
+    }
+    .is-active{
+      color: #ffd04b;
+    }
+  }
+  .bread-tool{
+    background: #fff;
+  }
+  .app-body{
+    background: #f0f2f5;
+  }
+}

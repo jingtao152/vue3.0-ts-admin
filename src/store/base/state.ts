@@ -1,6 +1,9 @@
-const menuList = localStorage.LeftMenuList ?  JSON.parse(localStorage.LeftMenuList) : []
+import storage from '../../hooks/storageUtil'
 
 const states = {
-    menuList: menuList
+    menuList: storage.getKey('menuList', []),
+    theme: storage.getKey('theme', 'dark'),
+    colorStyle: storage.getKey('colorStyle', '#409EFF'),
+    historyPage: storage.getKey('historyPage', [{path: '/dashboard/', pathName: '主控台'}])
 }
 export default states
