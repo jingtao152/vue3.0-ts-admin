@@ -1,5 +1,5 @@
 import Axios from '../service'
-import axios, { AxiosRequestConfig} from 'axios'
+import { AxiosRequestConfig} from 'axios'
 import Url from '../Url'
 import {addRouter} from '../../router/route'
 

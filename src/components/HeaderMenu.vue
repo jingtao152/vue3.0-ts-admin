@@ -58,22 +58,22 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, nextTick, onUnmounted, onMounted } from 'vue'
+import { defineComponent, ref, onUnmounted, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import SettingTool from '../components/SettingTool.vue'
 
 
 // 展开收起相关
-const collapseEvent = (prop) => {
+const collapseEvent = (context) => {
   const collapseMenu = () => {
-    prop.emit('collapseMenu')
+      context.emit('collapseMenu')
   }
   return { collapseMenu }
 }
 // 刷新相关
-const refreshEvent = (prop) => {
+const refreshEvent = (context) => {
   const refreshPage = async () => {
-    prop.emit('refreshPage')
+      context.emit('refreshPage')
   }
   return { refreshPage }
 }
@@ -122,9 +122,9 @@ const loginOutEvent = () => {
 }
 export default defineComponent({
   props: ['breadList', 'isCollapse'],
-  setup(context, prop) {
-    const { collapseMenu } = collapseEvent(prop)
-    const { refreshPage } = refreshEvent(prop)
+  setup(props, context) {
+    const { collapseMenu } = collapseEvent(context)
+    const { refreshPage } = refreshEvent(context)
     const { isFull, screenChange } = fulleScreen()
     const { drawer, openDrawer } = drawerEvent()
     const { loginOut } = loginOutEvent()

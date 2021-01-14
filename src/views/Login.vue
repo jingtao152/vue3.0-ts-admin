@@ -75,12 +75,11 @@ const loginPassEvent = (store) => {
       code: ''
     })
     const validateCode = (rule, value, callback) => {
-        console.log(777)
         if(!value) {
              callback(new Error('请输入验证码'))
         }else if (value.toLowerCase() !== codeImg.value.toLowerCase()) {
           callback(new Error('验证码输入错误'));
-        } 
+        }
          callback()
     }
     const rules = reactive<Rule>({
@@ -92,7 +91,7 @@ const loginPassEvent = (store) => {
     })
      const loginIn = () => {
       (formRef.value as any).validate((valid) => {
-        if (!valid){ 
+        if (!valid){
              if(codeRef.value) {
                 (codeRef.value as any).refresh()
             }
@@ -148,7 +147,6 @@ const loginPassEvent = (store) => {
         getTime()
         // 定时调用时间
         const timer = setInterval(()=>{
-            console.log(123)
             getTime()
         }, 1000)
         // 页面销毁时，清除定时器
@@ -216,7 +214,7 @@ export default defineComponent({
             color: #fff;
             font-weight: 300;
             letter-spacing: 2px;
-            font-size: 25px;    
+            font-size: 25px;
           }
       }
     }

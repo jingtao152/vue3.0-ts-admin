@@ -11,7 +11,9 @@ export const ColorStyle = (store) => {
   const updateStyle = (style, oldCluster, newCluster) => {
     let newStyle = style
     oldCluster.forEach((color, index) => {
-      newStyle = newStyle.replace(new RegExp(color, 'ig'), newCluster[index]).replace(/<br>/, '')
+      if(newStyle){
+        newStyle = newStyle.replace(new RegExp(color, 'ig'), newCluster[index]).replace(/<br>/, '')
+      }
     })
     return newStyle
   }
