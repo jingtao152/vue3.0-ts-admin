@@ -129,7 +129,7 @@ export const ColorStyle = (store) => {
 
     const styles = [].slice.call(document.querySelectorAll('style'))
 
-    styles.forEach((style: HTMLElement, index) => {
+    styles.forEach((style: HTMLElement) => {
       const { innerText } = style
       if (typeof innerText !== "string") return;
         style.innerText = updateStyle(
