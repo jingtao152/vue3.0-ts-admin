@@ -7,6 +7,7 @@ axios 请求拦截，404页面匹配，
 此项目只包含基础功能，为页面骨架。 
 此项目为学习vue3.0与typescript时，综合其特点所写， 其中typescript写的很烂。如有写的不好的，不规范的，轻喷。
 
+项目演示地址 http://111.231.12.76/#/login
 ## Project setup
 ```
 npm install
