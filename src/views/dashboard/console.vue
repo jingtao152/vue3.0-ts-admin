@@ -1,6 +1,6 @@
 <template>
     <div class="pageFull">
-        {{title}}
+        {{ title }}
         <el-button type="primary" @click="addPath">按钮</el-button>
     </div>
 </template>
@@ -13,7 +13,7 @@ export default defineComponent({
     setup() {
         const title = ref('conso')
         const store = useStore()
-        setTimeout(()=> {
+        setTimeout(() => {
             title.value = '夫是法国'
         }, 3000)
         const name = ref(0)
@@ -33,7 +33,7 @@ export default defineComponent({
 })
 </script>
 <style lang="scss">
-.pageFull{
+.pageFull {
     height: 100%;
     width: 100%;
 }

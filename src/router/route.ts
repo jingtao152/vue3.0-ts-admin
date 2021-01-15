@@ -1,11 +1,12 @@
 import router from './index'
+
 export const initRoute = (list, newArr) => {
 
     list.forEach(item => {
         if (item.component) {
             let child = []
             if (item.children) {
-                child =  initRoute(item.children, [])
+                child = initRoute(item.children, [])
             }
             newArr.push({
                 path: item.path,

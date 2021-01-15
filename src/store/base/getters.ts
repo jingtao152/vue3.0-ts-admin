@@ -7,17 +7,14 @@ const getters = {
             store.dispatch('base/getMenu').then(() => {
                 return state.menuList
             })
-        }else {
+        } else {
             return state.menuList
         }
 
     },
-    theme: (state) =>{
-        return state.theme
-    },
-    colorStyle: (state) => {
-        return state.colorStyle
-    },
-    historyPage: state => state.historyPage
+    theme: state => state.theme,
+    colorStyle: state => state.colorStyle,
+    historyPage: state => state.historyPage,
+    token: state => state.token
 }
 export default getters

@@ -11,7 +11,7 @@
                     <span>{{ item.name }}</span>
                 </template>
                 <el-menu-item v-for="child in item.children" :key="child.id"
-                            :index="`${item.path}/${child.path}`" @click="checkItem(item, child)">
+                              :index="`${item.path}/${child.path}`" @click="checkItem(item, child)">
                     {{ child.name }}
                 </el-menu-item>
             </el-submenu>
@@ -74,12 +74,13 @@ export default defineComponent({
 </script>
 <style lang="scss">
 .left-menu-wrapper {
-     transition: ease-in-out .3s;
-     height: 100%;
-     overflow: hidden;
-     border-right: 1px solid #ddd;
+    transition: ease-in-out .3s;
+    height: 100%;
+    overflow: hidden;
+    border-right: 1px solid #ddd;
 }
-.left-menu{
+
+.left-menu {
     transition: all .3s;
     border: none;
 
@@ -88,6 +89,7 @@ export default defineComponent({
         transition: all .3s;
     }
 }
+
 .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;
