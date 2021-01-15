@@ -1,6 +1,7 @@
 import Axios from 'axios'
 import {ElMessage, ElLoading} from 'element-plus'
 import router from '../router'
+import store from '../store'
 
 const CODE = 200
 let Loading
@@ -19,9 +20,10 @@ const StopLoading = () => {
 }
 Axios.interceptors.request.use(config => {
     StartLoading()
-    if (sessionStorage.getItem('access_token')) {
+    const token = (store.getters as any)['base/token']
+    if (token) {
         // 设置统一请求头
-        config.headers['access-token'] = sessionStorage.getItem('access_token')
+        config.headers['access-token'] = token
     }
     return config
 },error => {
@@ -35,7 +37,7 @@ Axios.interceptors.response.use(response => {
     if (response.status === 250) {
         ElMessage.error('登录超时，请重新登录')
         // 清除token
-        localStorage.removeItem('access_token');
+        store.commit('base/SET_TOKEN', '')
         // 跳转到登录页面
         router.push('/login')
         return Promise.reject(response.data.msg)

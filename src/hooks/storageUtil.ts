@@ -36,6 +36,10 @@ const storage: StorageObj = {
         return defaultVal
     },
     sessionSetKey: (name, key) => {
+        if(!key){
+            sessionStorage.removeItem(name)
+            return
+        }
         sessionStorage.setItem(name, key)
     },
     sessionGetKey: (name, defaultVal) => {
